@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "응모수첩",
+  "short_name": "응모수첩",
+  "lang": "ko-KR",
+  "description": "공식 이벤트를 발견하고 내 응모와 당첨 발표를 확인하는 수첩",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"}
+  ]
+}
