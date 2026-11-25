@@ -44,24 +44,28 @@ def merge(current, payload):
     if not isinstance(payload, list) or not payload:
         raise ValueError("올릴 공고가 없습니다.")
     rows = {e["id"]:e for e in current["events"]}
+    published = datetime.now(KST)
     new_ids = set()
     changes = []
     for patch in payload:
         if not isinstance(patch,dict) or not isinstance(patch.get("id"), str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]{1,95}", patch["id"]):
             raise ValueError("id는 영문 소문자·숫자·하이픈으로 작성하세요.")
         key = patch["id"]
-        if key in new_ids or set(patch) - FIELDS:
+        if key in new_ids or set(patch) - FIELDS - {"firstPublishedOn"}:
             raise ValueError(f"{key}: 중복된 ID 또는 공개 공고 양식에 없는 필드입니다.")
         new_ids.add(key)
         old = rows.get(key, {})
-        row = {**dict.fromkeys(sorted(OPTIONAL)), **old, **patch}
+        first_day = old.get("firstPublishedOn") if old else published.date().isoformat()
+        if "firstPublishedOn" in patch and patch["firstPublishedOn"] != first_day:
+            raise ValueError(f"{key}: 최초 게시일은 발행 도구가 기록하며 바꿀 수 없습니다.")
+        row = {**dict.fromkeys(sorted(OPTIONAL)), **old, **patch, "firstPublishedOn": first_day}
         check_event(row)
         if old and row["verifiedAt"] < old["verifiedAt"]:
             raise ValueError(f"{key}: 현재 게시된 확인 날짜보다 오래된 자료입니다.")
         if row != old:
             changes.append(("수정" if old else "추가", row["title"]))
         rows[key] = row
-    return {"version":1, "updatedAt":datetime.now(KST).isoformat(timespec="seconds"), "events":list(rows.values())}, changes
+    return {"version":1, "updatedAt":published.isoformat(timespec="seconds"), "events":list(rows.values())}, changes
 
 def gh(args, body=None):
     result = subprocess.run(["gh", "api", *args], input=body, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

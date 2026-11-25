@@ -45,6 +45,7 @@ h2{font-size:21px;font-weight:720;letter-spacing:-.055em}
 .row:last-child{border:0}.row:hover .entry-name{color:var(--green)}
 .row-copy{display:grid;gap:4px;min-width:0}.org,.prize,.row-end{font-size:13px;color:var(--muted);line-height:1.45}
 .entry-name{font-size:17px;line-height:1.42;letter-spacing:-.035em;color:var(--ink)}
+.new-badge{display:inline-block;vertical-align:.13em;padding:1px 6px;border-radius:4px;background:#def1e7;color:#16553b;font-size:11px;font-weight:700;letter-spacing:0;white-space:nowrap}
 .row-end{flex:none;max-width:90px;text-align:right;font-weight:650}
 .active-label{color:var(--green)}
 .privacy-card{padding:17px 19px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.65}

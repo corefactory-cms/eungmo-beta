@@ -2,7 +2,13 @@
 
 [휴대폰에서 응모수첩 열기](https://corefactory-cms.github.io/eungmo-beta/)
 
+[Windows판 다운로드](https://github.com/corefactory-cms/giveaway-desk/releases/latest/download/GiveawayDesk-Windows-x64.zip) · [Windows판 소스](https://github.com/corefactory-cms/giveaway-desk)
+
 공식 이벤트의 경품, 응모 방법, 주최 측 발표 위치를 모아서 봅니다. 응모는 주최 측에서 하고, 내 응모와 당첨 여부는 본인이 표시합니다. 응모·당첨·수령 기록은 사용하는 브라우저에 저장되므로 브라우저 데이터를 삭제하면 사라집니다. 기기 간에는 동기화되지 않습니다.
+
+처음 게시한 공고는 발견 목록에서 **신규**로 표시합니다. 한국 시간 기준 게시 당일부터 7일간 보입니다. 이후 경품이나 발표일을 수정해도 최초 게시일은 유지됩니다.
+
+접수 기한이 지나면 발견 화면의 **진행 중**에서 **마감**으로 옮겨집니다. 시간이 명시된 행사는 해당 분이 끝날 때, 날짜만 있는 행사는 한국 시간으로 다음 날 0시에 마감됩니다. 내 응모와 당첨 기록은 계속 확인할 수 있습니다.
 
 ## 운영자가 공고를 올릴 때
 

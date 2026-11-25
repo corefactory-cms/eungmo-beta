@@ -60,7 +60,7 @@ function cleanEvent(e) {
   for (const key of ["title","organizer","prize","entryMethod","rules","deadlineTime","announcementMethod"]) {
     event[key] = Array.isArray(e[key]) ? e[key].map(textValue).filter(Boolean).join(" · ") : textValue(e[key]);
   }
-  for (const key of ["startDate","deadline","drawDate","announcementDate","claimDeadline","verifiedAt"]) event[key] = validDate(e[key]) ? e[key] : null;
+  for (const key of ["startDate","deadline","drawDate","announcementDate","claimDeadline","verifiedAt","firstPublishedOn"]) event[key] = validDate(e[key]) ? e[key] : null;
   for (const key of ["sourceUrl","entryUrl","announcementUrl","resultUrl"]) event[key] = httpsUrl(e[key]);
   return event;
 }
@@ -132,8 +132,15 @@ const glyph = {
 const icon = (id) => '<svg viewBox="0 0 24 24" aria-hidden="true">'+glyph[id]+'</svg>';
 const personalNote = "응모·당첨 기록은 이 기기의 브라우저에만 저장돼요. 브라우저 데이터를 지우면 함께 삭제돼요.";
 const privateCard = '<aside class="privacy-card"><strong>내 기기에 저장해요</strong>'+personalNote+'</aside>';
+function recentlyPublished(e, today=kstMoment().slice(0, 10)) {
+  if (!validDate(e.firstPublishedOn)) return false;
+  const age = (Date.parse(today + "T00:00:00Z") - Date.parse(e.firstPublishedOn + "T00:00:00Z")) / 86400000;
+  return age >= 0 && age < 7;
+}
 function row(e, tail, detail=e.prize, hot=false) {
-  return `<button type="button" class="row" data-event="${escapeHtml(e.id)}"><span class="row-copy"><span class="org">${escapeHtml(e.organizer)}</span><strong class="entry-name">${escapeHtml(e.title)}</strong><span class="prize">${escapeHtml(detail)}</span></span><span class="row-end ${hot?"active-label":""}">${escapeHtml(tail)}</span></button>`;
+  const badge = currentRoute() === "discover" && recentlyPublished(e)
+    ? ` <span class="new-badge" title="${escapeHtml(e.firstPublishedOn)} 처음 게시 · 7일간 표시">신규</span>` : "";
+  return `<button type="button" class="row" data-event="${escapeHtml(e.id)}"><span class="row-copy"><span class="org">${escapeHtml(e.organizer)}</span><strong class="entry-name">${escapeHtml(e.title)}${badge}</strong><span class="prize">${escapeHtml(detail)}</span></span><span class="row-end ${hot?"active-label":""}">${escapeHtml(tail)}</span></button>`;
 }
 function ticket(e, section, detail, action, personal=false) {
   return `<button type="button" data-event="${escapeHtml(e.id)}" class="ticket"><span class="ticket-top"><span>${escapeHtml(section)}</span>${icon(personal?"mail":"ticket")}</span><strong>${escapeHtml(e.title)}</strong><span class="reward">${escapeHtml(detail)}</span><span class="ticket-act">${escapeHtml(action)}${icon("arrow")}</span></button>`;
@@ -265,9 +272,15 @@ document.addEventListener("click",(evt)=>{
 select("#detail").addEventListener("close",()=>{const last=activeId;activeId=null;Array.from(document.querySelectorAll("[data-event]")).find(b=>b.dataset.event===last)?.focus({preventScroll:true});});
 window.addEventListener("hashchange",()=>{if(select("#detail").open) select("#detail").close();screen();window.scrollTo(0,0);select("#main").focus({preventScroll:true});});
 window.addEventListener("storage",(e)=>{if(e.key===null || e.key.startsWith(recordPrefix)){readRecords();updateScreen();}});
-document.addEventListener("visibilitychange",()=>{if(!document.hidden) refresh();});
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){updateScreen();refresh();}});
 window.addEventListener("pageshow",e=>{if(e.persisted)refresh();});
-setInterval(()=>{if(!document.hidden)refresh();},60000);
+function watchMinute(){
+  setTimeout(()=>{
+    if(!document.hidden){updateScreen();refresh();}
+    watchMinute();
+  }, 60000 - Date.now() % 60000);
+}
+watchMinute();
 catalog=cleanCatalog(read(catalogKey))||catalog;
 lastSuccess=read(lastVisitKey)||"";
 readRecords();screen();refresh();

@@ -20,7 +20,8 @@
       "deadline": "2026-11-27",
       "announcementMethod": "응모 종료 후 한 달 이내 KOSIS 공지사항에 게시해요. 발표 당일 모바일로 발송해요.",
       "sourceUrl": "https://kosis.kr/survey/survey47.do",
-      "entryUrl": "https://kosis.kr/survey/survey47.do"
+      "entryUrl": "https://kosis.kr/survey/survey47.do",
+      "firstPublishedOn": "2026-11-25"
     },
     {
       "deadlineTime": null,
@@ -40,7 +41,8 @@
       "deadline": "2026-12-06",
       "announcementMethod": "12월 14일 공식 인스타그램 이벤트 게시물의 댓글에서 발표할 예정이에요.",
       "sourceUrl": "https://www.mohw.go.kr/gallery.es?act=view&bid=0015&list_no=380669&mid=a10314000000",
-      "entryUrl": "https://www.instagram.com/p/DfytLWhPFDM/"
+      "entryUrl": "https://www.instagram.com/p/DfytLWhPFDM/",
+      "firstPublishedOn": "2026-11-25"
     },
     {
       "deadlineTime": null,
@@ -60,7 +62,8 @@
       "deadline": "2026-12-06",
       "announcementMethod": "주최 측 공고에 발표일과 발표 방식이 기재되지 않았어요.",
       "sourceUrl": "https://www.kh.or.kr/brd/board/644/L/SITES/100/menu/371?bbIdx=120055&brdType=R",
-      "entryUrl": "https://survey.metrix.co.kr/?2026kha="
+      "entryUrl": "https://survey.metrix.co.kr/?2026kha=",
+      "firstPublishedOn": "2026-11-25"
     },
     {
       "deadlineTime": null,
@@ -80,7 +83,8 @@
       "deadline": "2026-12-16",
       "announcementMethod": "12월 중 착한가격업소 홈페이지 공지사항에서 발표해요. 정확한 날짜는 미정이에요.",
       "sourceUrl": "https://www.goodprice.go.kr/cmnt/boardInfo.do?bbsId=BBSCTT_00101&bbscttSn=68",
-      "entryUrl": "https://forms.gle/ZUA4nJT8RPz4Vvo28"
+      "entryUrl": "https://forms.gle/ZUA4nJT8RPz4Vvo28",
+      "firstPublishedOn": "2026-11-25"
     },
     {
       "announcementDate": "2026-12-09",
@@ -100,7 +104,8 @@
       "deadline": "2026-12-07",
       "announcementMethod": "12월 9일 강화군청 공지사항에 게시하고 당첨자에게 개별 통보할 예정이에요. 경품은 발표일부터 다음 날까지 순차 발송해요.",
       "sourceUrl": "https://www.ganghwa.go.kr/bbs/bbsMsgDetail.do?bcd=notice&msg_seq=12536",
-      "entryUrl": "https://www.ganghwa.go.kr/main/vote/voteApplyForm.do?vote_seq=100"
+      "entryUrl": "https://www.ganghwa.go.kr/main/vote/voteApplyForm.do?vote_seq=100",
+      "firstPublishedOn": "2026-11-25"
     }
   ]
 }
