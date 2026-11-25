@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-25T20:34:44+09:00",
+  "updatedAt": "2026-11-25T20:38:47+09:00",
   "events": [
     {
       "deadlineTime": null,
@@ -81,6 +81,26 @@
       "announcementMethod": "12월 중 착한가격업소 홈페이지 공지사항에서 발표해요. 정확한 날짜는 미정이에요.",
       "sourceUrl": "https://www.goodprice.go.kr/cmnt/boardInfo.do?bbsId=BBSCTT_00101&bbscttSn=68",
       "entryUrl": "https://forms.gle/ZUA4nJT8RPz4Vvo28"
+    },
+    {
+      "announcementDate": "2026-12-09",
+      "announcementUrl": "https://www.ganghwa.go.kr/main/ganghwa/news/notice.jsp",
+      "claimDeadline": null,
+      "deadlineTime": "23:59",
+      "drawDate": null,
+      "resultUrl": null,
+      "startDate": "2026-11-23",
+      "verifiedAt": "2026-11-25",
+      "id": "ganghwa-home-2026",
+      "title": "강화군 홈페이지 개편 기념 설문",
+      "organizer": "인천광역시 강화군",
+      "prize": "모바일 커피쿠폰 1만 원 · 100명",
+      "entryMethod": "강화군 홈페이지 로그인 후 설문",
+      "rules": "강화군 홈페이지 방문자 누구나 참여할 수 있어요. 주최 측 사이트에서 로그인하고 이름·연락처 기재와 개인정보 제공에 동의해야 추첨에 응모돼요.",
+      "deadline": "2026-12-07",
+      "announcementMethod": "12월 9일 강화군청 공지사항에 게시하고 당첨자에게 개별 통보할 예정이에요. 경품은 발표일부터 다음 날까지 순차 발송해요.",
+      "sourceUrl": "https://www.ganghwa.go.kr/bbs/bbsMsgDetail.do?bcd=notice&msg_seq=12536",
+      "entryUrl": "https://www.ganghwa.go.kr/main/vote/voteApplyForm.do?vote_seq=100"
     }
   ]
 }
