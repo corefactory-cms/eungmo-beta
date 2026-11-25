@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-25T20:38:47+09:00",
+  "updatedAt": "2026-11-25T21:09:45+09:00",
   "events": [
     {
       "deadlineTime": null,
@@ -105,6 +105,48 @@
       "announcementMethod": "12월 9일 강화군청 공지사항에 게시하고 당첨자에게 개별 통보할 예정이에요. 경품은 발표일부터 다음 날까지 순차 발송해요.",
       "sourceUrl": "https://www.ganghwa.go.kr/bbs/bbsMsgDetail.do?bcd=notice&msg_seq=12536",
       "entryUrl": "https://www.ganghwa.go.kr/main/vote/voteApplyForm.do?vote_seq=100",
+      "firstPublishedOn": "2026-11-25"
+    },
+    {
+      "announcementDate": null,
+      "announcementUrl": null,
+      "claimDeadline": null,
+      "deadlineTime": "18:00",
+      "drawDate": null,
+      "resultUrl": null,
+      "startDate": "2026-11-23",
+      "id": "seoul-on-survey-2026",
+      "title": "서울온 이용자 만족도 조사",
+      "organizer": "서울특별시 디지털정책과",
+      "prize": "커피 쿠폰 · 추첨 1,500명",
+      "entryMethod": "서울시 엠보팅에서 온라인 설문 참여",
+      "rules": "서울온 이용자 등 누구나 참여할 수 있어요. 행사 안내와 경품 추첨 조건은 서울시 설문에서 확인해 주세요.",
+      "deadline": "2026-12-07",
+      "announcementMethod": "서울시 공고에 당첨 발표일과 발표 방식이 기재되어 있지 않아요.",
+      "sourceUrl": "https://news.seoul.go.kr/gov/archives/582085",
+      "entryUrl": "https://mvoting.seoul.go.kr/mvoting/voting/hotissue/selectHotissue.do?vote_no=99506",
+      "verifiedAt": "2026-11-25",
+      "firstPublishedOn": "2026-11-25"
+    },
+    {
+      "announcementDate": "2026-12-07",
+      "announcementUrl": null,
+      "claimDeadline": null,
+      "deadlineTime": null,
+      "drawDate": null,
+      "resultUrl": null,
+      "startDate": "2026-11-10",
+      "id": "nhis-healthmoa-survey-2026",
+      "title": "건강모아 서비스 만족도 조사",
+      "organizer": "국민건강보험공단",
+      "prize": "GS25 모바일상품권 1만 원 · 추첨 250명",
+      "entryMethod": "공단 홈페이지 배너 또는 모바일 앱의 이벤트 메뉴에서 설문 참여",
+      "rules": "건강모아 서비스 이용자가 대상이에요. 한 사람당 한 번 참여할 수 있고, 경품 응모에는 주최 측의 개인정보 수집 동의가 필요해요.",
+      "deadline": "2026-11-29",
+      "announcementMethod": "12월 7일 공단 홈페이지 공지사항과 모바일 앱에 발표할 예정이에요.",
+      "sourceUrl": "https://www.mohw.go.kr/gallery.es?act=view&bid=0015&list_no=380634&mid=a10314000000",
+      "entryUrl": "https://www.mohw.go.kr/gallery.es?act=view&bid=0015&list_no=380634&mid=a10314000000",
+      "verifiedAt": "2026-11-25",
       "firstPublishedOn": "2026-11-25"
     }
   ]
