@@ -90,7 +90,7 @@ function period(e, moment = kstMoment()) {
   if (e.startDate && today < e.startDate) return "next";
   if (today !== e.deadline) return today > e.deadline ? "closed" : "open";
   const deadline = /^(\d{1,2}):(\d{2})(?::(\d{2}))?$/.exec(e.deadlineTime);
-  if (deadline && time > deadline[1].padStart(2,"0")+":"+deadline[2]+":"+(deadline[3]||"00")) return "closed";
+  if (deadline && time > deadline[1].padStart(2,"0")+":"+deadline[2]+":"+(deadline[3]||"59")) return "closed";
   return "open";
 }
 function deadlineLabel(e) {
@@ -107,13 +107,18 @@ function resultInfo(e) {
   if (!e.announcementDate) return { label:individual ? "개별 안내 · 날짜 미정" : "발표일 미정", group:"wait", help:e.announcementMethod || "주최 측이 발표일을 안내하면 갱신해요." };
   if (today < e.announcementDate) return {label:compactDate(e.announcementDate)+" 발표 예정",group:"wait",help:e.announcementMethod || "발표 예정일을 기다리고 있어요."};
   if (individual) return {label:"개별 안내 확인",group:"check",help:e.announcementMethod};
+  if (e.announcementUrl) return {label:today===e.announcementDate?"오늘 발표 예정":"발표 확인처 열기",group:"check",help:"발표 예정일이 되었어요. 주최 측 발표 확인처에서 공지를 확인하세요."};
   return {label:today === e.announcementDate ? "오늘 발표 예정" : "발표문 확인 중",group:"wait",help:"주최 측 공지에 발표문이 올라왔는지 확인하고 있어요."};
 }
 const statusLabel = (r) => !r ? "미응모" : r.status==="won" ? (r.claimed ? "수령 완료" : "당첨") : r.status==="lost" ? "미당첨" : "결과 미확인";
 function resultAction(e) {
   const r=records.get(e.id);
   if (r?.status==="won" && !r.claimed) return {rank:0,label:"경품 수령 확인",detail:e.claimDeadline ? compactDate(e.claimDeadline)+" 수령 신청 마감" : "수령 상태를 기록할 수 있어요."};
-  if (r?.status==="pending" && resultInfo(e).group==="check") return {rank:e.resultUrl?1:2,label:e.resultUrl?"공식 발표문 확인":"개별 안내 확인",detail:resultInfo(e).help};
+  if (r?.status==="pending" && resultInfo(e).group==="check") {
+    const info=resultInfo(e);
+    const label=e.resultUrl?"공식 발표문 확인":info.label==="개별 안내 확인"?info.label:"발표 확인처 열기";
+    return {rank:e.resultUrl?1:2,label,detail:info.help};
+  }
   return null;
 }
 function byDate(a,b) { return a.deadline.localeCompare(b.deadline) || a.title.localeCompare(b.title,"ko"); }
